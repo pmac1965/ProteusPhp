@@ -16,7 +16,7 @@
  */
 
 
-include_once 'proteus/core/settings.php';
+include_once 'ProteusPhp/proteus/core/settings.php';
 
 
 // Class: TPoint3
