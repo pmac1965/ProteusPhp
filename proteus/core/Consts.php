@@ -16,8 +16,5 @@
  */
 
 
-//include_once '';
-class Vector2
-{
-    
-}
+define("ZERO", 0);
+define("ONE", 0);

@@ -16,8 +16,20 @@
  */
 
 
-//include_once '';
-class Vector2
-{
-    
+function IsNullOrEmpty($string)
+{	
+	if ($string === null)
+	{
+		return true;
+	} 
+
+	if (is_string($string))
+	{		
+		if (strlen($string) === 0)
+		{
+			return true;
+		} 
+	}
+	
+	return false;
 }
