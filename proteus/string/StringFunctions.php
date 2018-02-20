@@ -16,6 +16,14 @@
  */
 
 
+/**
+ * Tests a variable to see if its NULL or is an empty string.
+ *
+ * @param   string  $string     A string to test.
+ * @return  bool    TRUE if the passed string is NULL or empty.
+ * @author  Paul Michael McNab.
+ * @version 1.0.0
+ */
 function IsNullOrEmpty($string)
 {	
 	if ($string === null)

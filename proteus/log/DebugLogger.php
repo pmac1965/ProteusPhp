@@ -16,12 +16,30 @@
  */
 
 
-// Maths constants
-define("ZERO", 0);              //
-define("ONE", 1);               //
-define("PI", 3.14159265);       //
-define("PITWO", PI * 2);        //
-define("PIHALF", PI / 2);       //
-define("EPSILON", 0.000001);    //
 
-const MIN_VALUE = 0.0; // Test
+/**
+ * Logging Class
+ *
+ * @package		ProteusPhp
+ * @subpackage	Libraries
+ * @category	Logging
+ * @author		Paul Michael McNab
+ */
+class DebugLogger
+{
+	/**
+	 * Path to save log files
+	 *
+	 * @var string
+	 */
+	protected $_log_path;
+    
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        //;
+    }
+}

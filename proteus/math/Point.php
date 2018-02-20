@@ -19,8 +19,10 @@
 include_once 'ProteusPhp/proteus/core/settings.php';
 
 
-// Class: TPoint3
-//      template for a simple 3D point.
+/** A simple 3D point.
+ * A simple 3D point.
+ * 
+ */
 class Point3
 {    
     public $x;              // Members are public for faster access.
@@ -29,17 +31,36 @@ class Point3
                             // no operator overloading
 
     
-    // Method: Point3
-    //      The only Point3 constructor.
+    /**
+     * The only Point3 constructor.
+     * 
+     * @param   var     $x      X parameter.
+     * @param   var     $y      Y parameter.
+     * @param   var     $z      Z parameter.
+     * @author  Paul Michael McNab.
+     * @version 1.0.0
+     */
     public function __construct($x = 0, $y = 0, $z = 0)
     {
+        if (DEBUG == 1)
+        {
+            assert(is_numeric($x));
+            assert(is_numeric($y));
+            assert(is_numeric($z));
+        }
+        
         $this->x = $x;
         $this->y = $y;
         $this->z = $z;
     }
     
-    // Method: duplicate
-    //      makes a copy of this class
+
+    /**
+     * Makes a copy of this class
+     * 
+     * @param Point3 $point
+     * @return A duplicated point.
+     */
     public function duplicate($point)
     {
         // Check we're duplicating same object type.
