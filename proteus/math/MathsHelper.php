@@ -17,7 +17,6 @@
  * @package     ProteusPhp
  * @author      Paul Michael McNab
  * @copyright	Copyright (C)2018 Paul Michael McNab
- * @license     http://www.apache.org/licenses/LICENSE-2.0	Apache License
  * @since       Version 1.0.0
  * @filesource
  */
@@ -52,18 +51,6 @@ function BoolResult($boolean, $uppercase = FALSE)
         return $uppercase ? "FALSE" : "false";
     }
 }
-// Tests for later
-/*
-        $b = TRUE;
-        echo 'Result :' . BoolResult($b) . "</br>";
-        $b = FALSE;
-        echo 'Result :' . BoolResult($b) . "</br>";
-
-        $b = TRUE;
-        echo 'Result :' . BoolResult($b, TRUE) . "</br>";
-        $b = FALSE;
-        echo 'Result :' . BoolResult($b, TRUE) . "</br>"; 
-//*/
 
 
 /**
@@ -98,17 +85,6 @@ function PercentageOfValue($percent, $value)
     
     return $value - $third;
 }
-// Tests for later
-/*
-        $percent = PercentageOfValue(50, 200);
-        echo "50 Percent of 200 is $percent</br>";
-        
-        $percent = PercentageOfValue(25, 200);
-        echo "25 Percent of 200 is $percent</br>";
-        
-        $percent = PercentageOfValue(10, 400);
-        echo "10 Percent of 400 is $percent</br>";
-//*/
 
 
 /**
@@ -142,15 +118,6 @@ function PercentageOfTotal($amount, $total)
 
     return $percentage;
 }
-// Tests
-/*
-        $percent = PercentageOfTotal(50, 200);
-        echo "50 is $percent% of 200</br>";
-        $percent = PercentageOfTotal(100, 200);
-        echo "100 is $percent% of 200</br>";
-        $percent = PercentageOfTotal(350, 700);
-        echo "350 is $percent% of 700</br>";
- //*/
 
 
 /** Swaps two numbers.
@@ -171,16 +138,6 @@ function Swap(&$a, &$b)
     $b   = $a;
     $a   = $tmp;
 }
-//
-/*
-        $a = 200;
-        $b = 10;
-        echo "Numbers $a $b</br>";
-        Swap($a,$b);
-        echo "Numbers $a $b</br>";
-        Swap($a,$b);
-        echo "Numbers $a $b</br>";
-//*/
 
 
 /** This function tests if a number is power of 2
@@ -213,19 +170,39 @@ function IsPowerOfTwo($size)
 
 /** Ensures a variable is clamped between the minimum and maximum range specified.
  * 
- * @param   Number  $var    The number to clamp.
+ * @param   Number  $var    The numeric variable to clamp.
  * @param   Number  $min    The minimum value the number can be.
  * @param   Number  $max    The maximum value the number can be.
- * @return  Number          The clamped number.
+ * @return  The clamped number.
  */
 function Clamp($var, $min, $max)
 {
     if (DEBUG == 1)
     {
         assert(is_numeric($var));
-        assert(is_numeric($var));
-        assert(is_numeric($var));
+        assert(is_numeric($min));
+        assert(is_numeric($max));
     }
    
     return ($var < $min ? $min : $var > $max ? $max : $var);
+}
+
+
+/** Used to test if a variable is between the minimum and maximum range specified.
+ * 
+ * @param   Number  $var    The numeric variable to test.
+ * @param   Number  $min    The minimum value the number can be.
+ * @param   Number  $max    The maximum value the number can be.
+ * @return  TRUE or FALSE
+  */
+function IsBetween($var, $min, $max)
+{
+    if (DEBUG == 1)
+    {
+        assert(is_numeric($var));
+        assert(is_numeric($min));
+        assert(is_numeric($max));
+    }
+    
+    return ($var >= $min && $var <= $max);
 }

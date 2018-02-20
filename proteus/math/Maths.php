@@ -21,3 +21,4 @@ include_once 'ProteusPhp/proteus/math/Vector.php';
 include_once 'ProteusPhp/proteus/math/Vector2.php';
 include_once 'ProteusPhp/proteus/math/Vector3.php';
 include_once 'ProteusPhp/proteus/math/MathsHelper.php';
+include_once 'ProteusPhp/proteus/math/BitField.php';

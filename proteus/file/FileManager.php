@@ -6,8 +6,12 @@
 
 class FileManager
 {
-    function Open($filename, $mode)
-    {
-        
+    public function Open($filename, $mode)
+    {        
+    }
+    
+    
+    public function Save()
+    {        
     }
 }
