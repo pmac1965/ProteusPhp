@@ -26,18 +26,33 @@
  */
 function IsNullOrEmpty($string)
 {	
-	if ($string === null)
+	if ($string === NULL)
 	{
-		return true;
+		return TRUE;
 	} 
 
 	if (is_string($string))
 	{		
 		if (strlen($string) === 0)
 		{
-			return true;
+			return TRUE;
 		} 
 	}
 	
-	return false;
+	return FALSE;
+}
+
+
+/**
+ * Determines if a character is whitespace.
+ * 
+ * @param   string $char    The character to test. 
+ * @return  boolean         TRUE or FALSE
+ */
+function IsWhitespace($char)
+{
+    return ($char == ' '  ||
+            $char == '\r' || 
+            $char == '\n' ||
+            $char == '\t');
 }

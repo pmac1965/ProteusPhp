@@ -16,30 +16,4 @@
  */
 
 
-
-/**
- * Logging Class
- *
- * @package		ProteusPhp
- * @subpackage	Libraries
- * @category	Logging
- * @author		Paul Michael McNab
- */
-class DebugLogger
-{
-	/**
-	 * Path to save log files
-	 *
-	 * @string  _logPath    The path to save log files to.
-	 */
-	protected $_logPath;
-    
-
-    /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        //;
-    }
-}
+// Need to explore factory patterns

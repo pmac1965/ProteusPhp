@@ -18,20 +18,20 @@
  * @author      Paul Michael McNab
  * @copyright	Copyright (C)2018 Paul Michael McNab
  * @since       Version 1.0.0
- * @filesource
  */
 
 
 include_once 'ProteusPhp/proteus/core/Settings.php';
+include_once 'ProteusPhp/proteus/core/Consts.php';
 
 
-/**
- * In PHP, TRUE is represented the value 1, and FALSE is represented by NULL.
+/** 
+ * TRUE is represented the value 1, and FALSE is represented by NULL.
  * This function returns a string representation which is easier to display
  * 
  * @param   bool    $boolean    The variable to test.
  * @param   bool    $uppercase  Should the returned string be UPPERCASE or lowercase.
- * @return  string              true or false
+ * @return  string              A string containing true or false.
  */
 function BoolResult($boolean, $uppercase = FALSE)
 {
@@ -40,8 +40,7 @@ function BoolResult($boolean, $uppercase = FALSE)
         assert(is_bool($boolean), "Incorrect type passed - Must be boolean");
         assert(is_bool($uppercase), "Incorrect type passed - Must be boolean");
     }
-    
-    
+        
     if ($boolean === TRUE)
     {
         return $uppercase ? "TRUE" : "true";
@@ -91,8 +90,8 @@ function PercentageOfValue($percent, $value)
  * Calculates 'amount's percentage in relation to 'total'.
  * E.g. (50, 200) == 25% of total.
  * 
- * @param   float   $amount     Expla
- * @param   float   $total      Expla
+ * @param   float   $amount     The amount to find.
+ * @param   float   $total      The total percentage to use.
  * @return  float               The calculated percentage.
  */
 function PercentageOfTotal($amount, $total)
@@ -120,8 +119,9 @@ function PercentageOfTotal($amount, $total)
 }
 
 
-/** Swaps two numbers.
- *  Allows for integers and floats.
+/** 
+ * Swaps two numbers passed by reference.
+ * Allows for integers and floats.
  * 
  * @param   int     $a      Can be an integer or a float.
  * @param   float   $b      Can be an integer or a float.
@@ -140,7 +140,8 @@ function Swap(&$a, &$b)
 }
 
 
-/** This function tests if a number is power of 2
+/** 
+ * This function tests if a number is power of 2
  * 
  * @param   integer     $size     An integer test value
  * @return  boolean     TRUE or FALSE
@@ -156,7 +157,6 @@ function IsPowerOfTwo($size)
     
     for ($i = 1; $i < 32; $i++)
     {
-        //echo (1 << $i)."</br>";        
         if ($size == (1 << $i))
         {
             $result = TRUE;
@@ -168,7 +168,8 @@ function IsPowerOfTwo($size)
 }
 
 
-/** Ensures a variable is clamped between the minimum and maximum range specified.
+/** 
+ * Ensures a variable is clamped between the minimum and maximum range specified.
  * 
  * @param   Number  $var    The numeric variable to clamp.
  * @param   Number  $min    The minimum value the number can be.
@@ -188,7 +189,8 @@ function Clamp($var, $min, $max)
 }
 
 
-/** Used to test if a variable is between the minimum and maximum range specified.
+/** 
+ * Used to test if a variable is between the minimum and maximum range specified.
  * 
  * @param   Number  $var    The numeric variable to test.
  * @param   Number  $min    The minimum value the number can be.
@@ -205,4 +207,103 @@ function IsBetween($var, $min, $max)
     }
     
     return ($var >= $min && $var <= $max);
+}
+
+
+/**
+ * Calculates the smallest of 3 numbers.
+ * 
+ * @param   Number  $a      A numeric value.
+ * @param   Number  $b      A numeric value.
+ * @param   Number  $c      A numeric value.
+ * @return  Number  The smallest of the 3 numbers.
+ */
+function MinMin($a, $b, $c)
+{
+    if (DEBUG == 1)
+    {
+        assert(is_numeric($a));
+        assert(is_numeric($b));
+        assert(is_numeric($c));
+    }
+        
+    return ($a < $b ? min($a, $c) : min($b, $c));
+}
+
+
+/**
+ * Calculates the largest of 3 numbers.
+ * 
+ * @param   Number  $a      A numeric value.
+ * @param   Number  $b      A numeric value.
+ * @param   Number  $c      A numeric value.
+ * @return  Number  The smallest of the 3 numbers.
+ */
+function MaxMax($a, $b, $c)
+{
+    if (DEBUG == 1)
+    {
+        assert(is_numeric($a));
+        assert(is_numeric($b));
+        assert(is_numeric($c));
+    }
+
+    return ($a > $b ? max($a, $c) : max($b, $c));
+}
+
+
+/**
+ * Calculates the absolute of a float number.
+ * 
+ * @param   float   $a      The float to convert to an absolute.
+ * @return  float   The absolute float value.
+ */
+function Fabs($a)
+{
+    if (DEBUG == 1)
+    {
+        assert(is_numeric($a));
+    }
+    
+    return ($a < 0.0 ? -$a : $a);
+}
+
+
+/**
+ * Performs linear interpolation over time.
+ * 
+ * @param   float   $time       Current time
+ * @param   float   $from       Start value
+ * @param   float   $to         End value
+ * 
+ * @return float    Unsure if this will be useful. Changes a value over time.
+ */
+function Lerp($time, $from, $to)
+{
+    if (DEBUG == 1)
+    {
+        assert(is_float($time));
+        assert(is_float($from));
+        assert(is_float($to));
+    }
+    
+    return ($from + ($time * ($to - $from)));
+}
+
+
+/**
+ * Converts radians to degrees.
+ */
+function RadToDeg($radians)
+{
+    return ($radians * (180.0 / PI));
+}
+
+
+/**
+ * Converts degrees to radians.
+ */
+function DegToRad($degrees)
+{
+    return ($degrees * (PI / 180.0));
 }
