@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<particle_file version="1.0.0">
+	<!--
+		Particle emitter
+		This defines a particular emitter type. For example an explosion.
+		An explosion emitter could be made up from a one or more effects, for example
+		an explosive burst effect, followed by a smoke effect
+
+		name		- The emitter name
+		lifetime	- How ling on seconds before this emitter dies
+	-->
+    <emitter name="bomph" lifetime="2.0">
+		<!-- Effects
+		-->
+		<effectType name="dust_01" count="8" waitTime="0.0" runTime="1.3"/>
+	</emitter>
+
+    <emitter name="bomph2" lifetime="2.0">
+		<effectType name="dust_01" count="8" waitTime="0.0" runTime="1.3"/>
+	</emitter>
+
+	<!-- Particle effect -->
+	<effect name="dust_01" image="star.pvr">
+		<velocity x="0.0" y="0.0" z="0.0" />		
+		<gravity x="0.0" y="0.0" z="0.0" />		
+		<scale x="0.0" y="0.0" z="0.0" />		
+		<rotation x="0.0" y="0.0" z="0.0" />		
+	</effect>
+</particle_file>

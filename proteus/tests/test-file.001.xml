@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<achievements_file version="1.0.0">
+	
+	<achievement
+	      name="first"
+		  desc_brief="Nutta"
+		  desc_howto="Slice 300 Nutz."
+		  desc_achieved="You sliced 300 Nutz!"
+		  identifier="You_Nutta"
+	      image="data/textures/01.pvr"/>
+	
+	<achievement
+	      name="second"
+		  desc_brief="King of Nutz"
+		  desc_howto="Slice 1500 Nutz."
+		  desc_achieved="You sliced 1500 Nutz!"
+		  identifier="King_of_Nutz"
+	      image="data/textures/02.pvr"/>
+	
+	<achievement
+	      name="third"
+		  desc_brief="Froot God"
+		  desc_howto="Slice 500 Froot."
+		  desc_achieved="You sliced 500 Froot!"
+		  identifier="Froot_god"
+	      image="data/textures/03.pvr"/>
+		
+	<achievement
+	      name="fourth"
+		  desc_brief="Slicing Freshman"
+		  desc_howto="Perform 150 slices in one game."
+		  desc_achieved="You did 150 slices in one game!"
+		  identifier="Slicing_freshman"
+	      image="data/textures/04.pvr"/>
+
+</achievements_file>
