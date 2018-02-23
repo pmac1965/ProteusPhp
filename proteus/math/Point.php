@@ -16,29 +16,29 @@
  */
 
 
-include_once 'ProteusPhp/proteus/core/settings.php';
+include_once 'ProteusPhp/proteus/core/Settings.php';
 
 
 /** A simple 3D point.
- * A simple 3D point.
+ * A test class which is not intended for use. I use it to test code syntax, 
+ * usage and test language constructs.
  * 
+ * @author  Paul Michael McNab.
+ * @version 1.0.0
  */
-class Point3
+class Point3                // Test class - NOT for a production environment.
 {    
-    public $x;              // Members are public for faster access.
-    public $y;              // Didn't like multiple vars on one line?
-    public $z;              // Doesn't have multiple constructors!
-                            // no operator overloading
-
+    private $x;             // Members aren't public for faster access.
+    private $y;             // Didn't like multiple vars on one line?
+    private $z;             // Doesn't have multiple constructors!
+                            // No operators/operator overloading
     
     /**
-     * The only Point3 constructor.
+     * The only Point3 constructor. Apparently we only have one constructor.
      * 
-     * @param   var     $x      X parameter.
-     * @param   var     $y      Y parameter.
-     * @param   var     $z      Z parameter.
-     * @author  Paul Michael McNab.
-     * @version 1.0.0
+     * @param   Number  $x      X parameter.
+     * @param   Number  $y      Y parameter.
+     * @param   Number  $z      Z parameter.
      */
     public function __construct($x = 0, $y = 0, $z = 0)
     {
@@ -54,14 +54,33 @@ class Point3
         $this->z = $z;
     }
     
+    
+    public function __destruct() 
+    {
+        echo "Unneeded destruct function\n";
+    }
+    
+    
+/*    public function __clone()
+    {
+        echo "Implement a deep copy clone, even though its unnecessary for this class\n";        
+    }//*/
+    
+    
+/*    public function __get($name) // __set
+    {
+        
+    }//*/
+    
 
     /**
      * Makes a copy of this class
      * 
      * @param Point3 $point
+     * 
      * @return A duplicated point.
      */
-    public function duplicate($point)
+    public function Duplicate($point)
     {
         // Check we're duplicating same object type.
         if (DEBUG == 1)
@@ -83,9 +102,12 @@ class Point3
     }
     
     
-    //
-    //
-    public function add($point)
+    /**
+     * Adds a point to this point.
+     * 
+     * @param Point3 $point
+     */
+    public function Add($point)
     {        
         // Check we're duplicating same object type.
         if (DEBUG == 1)
@@ -101,5 +123,51 @@ class Point3
         $this->x += $point->x;
         $this->y += $point->y;
         $this->z += $point->z;
+        
+        //return $this;
     }
+    
+    
+    /**
+     * Gets the X component of the point.
+     * 
+     * @return Returns the X component of the point.
+     */
+    public function GetX() { return $this->x; }
+
+    
+    /**
+     * Gets the Y component of the point.
+     * 
+     * @return Returns the Y component of the point.
+     */
+    public function GetY() { return $this->y; }
+
+    
+    /**
+     * Gets the Z component of the point.
+     * 
+     * @return Returns the Z component of the point.
+     */
+    public function GetZ() { return $this->z; }
+    
+    
+    /**
+     * __toString
+     * 
+     * A magic method to return a string representation of this class.
+     * 
+     * @return A string representation of a Point3 class
+     */
+    public function __toString()
+    {
+        return "Point3($this->x, $this->y, $this->z)";
+    }
+    
+    
+/*    public function __add($__value__)
+    {
+        echo "Adding";
+        
+    }//*/
 }
