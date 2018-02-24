@@ -17,7 +17,7 @@
 
 
 
-class User
+class User // https://stackoverflow.com/questions/4707053/php-user-class-login-logout-signup
 {
     protected   $first_name;
     protected   $last_name;
@@ -48,5 +48,15 @@ class User
     final public function GetLastName()
     {
         return $this->last_name;
+    }
+    
+    
+    public function login()
+    {        
+    }
+    
+    
+    public function logout()
+    {        
     }
 }

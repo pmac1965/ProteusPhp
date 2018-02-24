@@ -187,6 +187,13 @@ function Clamp($var, $min, $max)
    
     return ($var < $min ? $min : $var > $max ? $max : $var);
 }
+/** // Older version
+ * Ensures a variable is between the minimum and maximum range specified.
+ */
+/*function clamp($val, $minVal, $maxVal)
+{
+	return max($minVal, min($maxVal, $val));
+}//*/
 
 
 /** 
