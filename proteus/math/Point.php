@@ -1,40 +1,43 @@
 <?php
-/**
- * Copyright 2018 Paul Michael McNab
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// -----------------------------------------------------------------------------
+// Copyright 2018 Paul Michael McNab
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// -----------------------------------------------------------------------------
 
 
 include_once 'ProteusPhp/proteus/core/Settings.php';
 
 
 /** A simple 3D point.
- * A test class which is not intended for use. I use it to test code syntax, 
+ * 
+ * A test class which is not intended for use. I used it to test code syntax, 
  * usage and test language constructs.
  * 
+ * @notes   DO NOT USE
  * @author  Paul Michael McNab.
  * @version 1.0.0
  */
-class Point3                // Test class - NOT for a production environment.
+class Point3
 {    
-    private $x;             // Members aren't public for faster access.
-    private $y;             // Didn't like multiple vars on one line?
-    private $z;             // Doesn't have multiple constructors!
-                            // No operators/operator overloading
-    
+    public $x;              // No operators/operator overloading
+    public $y;              // Didn't like multiple vars on one line?
+    public $z;              // Doesn't have multiple constructors!
+
+
     /**
-     * The only Point3 constructor. Apparently we only have one constructor.
+     * The only Point3 constructor. 
+     *  Apparently we only have one constructor.
      * 
      * @param   Number  $x      X parameter.
      * @param   Number  $y      Y parameter.
@@ -52,12 +55,6 @@ class Point3                // Test class - NOT for a production environment.
         $this->x = $x;
         $this->y = $y;
         $this->z = $z;
-    }
-    
-    
-    public function __destruct() 
-    {
-        echo "Unneeded destruct function\n";
     }
     
     
@@ -80,17 +77,12 @@ class Point3                // Test class - NOT for a production environment.
      * 
      * @return A duplicated point.
      */
-    public function Duplicate($point)
+/*    public function Duplicate($point)
     {
         // Check we're duplicating same object type.
         if (DEBUG == 1)
         {    
-            //assert(is_a('Point3', "Can only duplicate objects of same class"));
             assert($point instanceof Point3);  
-/*            if (!is_a('Point3', "Can only duplicate objects of same class"))
-            {
-                throw new InvalidArgumentException("We need a Point3 for correct duplication.");
-            }//*/
         }
     
         $instance = new self();
@@ -99,57 +91,105 @@ class Point3                // Test class - NOT for a production environment.
         $instance->z = $point->z;
 
         return $instance;
-    }
+    }//*/
     
     
     /**
      * Adds a point to this point.
      * 
      * @param Point3 $point
+     * 
+     * @return  The updated point.
      */
     public function Add($point)
     {        
         // Check we're duplicating same object type.
         if (DEBUG == 1)
-        {    
-            //assert(is_a('Point3', "Can only duplicate objects of same class"));
-            assert($point instanceof Point3);  
-            /*if (!is_a('Point3', "Can only duplicate objects of same class")) {
-                throw new InvalidArgumentException("We need a Point3 for correct duplication.");
-//                return;
-            }//*/
+        {
+            assert(is_a($point, "Point3"));
         }
         
         $this->x += $point->x;
         $this->y += $point->y;
         $this->z += $point->z;
         
-        //return $this;
+        return $this;
     }
     
     
     /**
-     * Gets the X component of the point.
+     * Subtracts a point from this point.
      * 
-     * @return Returns the X component of the point.
+     * @param Point3 $point
+     * 
+     * @return  The updated point point.
      */
-    public function GetX() { return $this->x; }
-
+    public function Sub($point)
+    {        
+        // Check we're duplicating same object type.
+        if (DEBUG == 1)
+        {    
+            assert($point instanceof Point3);  
+        }
+        
+        $this->x -= $point->x;
+        $this->y -= $point->y;
+        $this->z -= $point->z;
+        
+        return $this;
+    }
+    
     
     /**
-     * Gets the Y component of the point.
+     * Multiplies a point by this point.
      * 
-     * @return Returns the Y component of the point.
+     * @param Point3 $point
+     * 
+     * @return  The updated point point.
      */
-    public function GetY() { return $this->y; }
-
+    public function Mul($point)
+    {        
+        // Check we're duplicating same object type.
+        if (DEBUG == 1)
+        {    
+            if (!is_a($point, "Point3")) 
+            {
+                throw new InvalidArgumentException("We need a Point3 for correct duplication.");
+            }
+        }
+        
+        $this->x *= $point->x;
+        $this->y *= $point->y;
+        $this->z *= $point->z;
+        
+        return $this;
+    }
+    
     
     /**
-     * Gets the Z component of the point.
+     * Divides this point by a point.
      * 
-     * @return Returns the Z component of the point.
+     * @param Point3 $point
+     * 
+     * @return  The updated point point.
      */
-    public function GetZ() { return $this->z; }
+    public function Div($point)
+    {        
+        // Check we're duplicating same object type.
+        if (DEBUG == 1)
+        {    
+            if (!is_a($point, "Point3")) 
+            {
+                throw new InvalidArgumentException("We need a Point3 for correct duplication.");
+            }
+        }
+        
+        $this->x /= $point->x;
+        $this->y /= $point->y;
+        $this->z /= $point->z;
+        
+        return $this;
+    }
     
     
     /**
@@ -165,9 +205,5 @@ class Point3                // Test class - NOT for a production environment.
     }
     
     
-/*    public function __add($__value__)
-    {
-        echo "Adding";
-        
-    }//*/
+//    public function __add($__value__) // To add
 }

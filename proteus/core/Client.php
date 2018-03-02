@@ -16,5 +16,10 @@
 // -----------------------------------------------------------------------------
 
 
-// To be fleshed out - testing php private server
-// https://www.sitepoint.com/taking-advantage-of-phps-built-in-server/
+class Client extends User
+{
+    public function login()
+    {
+        parent::login();
+    }    
+}
