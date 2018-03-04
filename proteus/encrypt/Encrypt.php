@@ -16,4 +16,18 @@
 // -----------------------------------------------------------------------------
 
 
-// ?
+// Find a better use/location - wrong location? what was I thinking?
+function MakePassword(){
+    $password = "test123";
+        
+    /*$pwd = password_hash($password, PASSWORD_DEFAULT);
+    echo $pwd;
+    echo "</br>;//*/
+    
+    
+    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+    
+    if (passord_verify($password, $hashedPwd) == 1)
+    {
+    }
+}

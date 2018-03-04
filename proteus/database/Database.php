@@ -16,4 +16,11 @@
 // -----------------------------------------------------------------------------
 
 
-// Reminder to start fleshing out the code
+// Connects to my localhost database.
+$dbServername="localhost";
+$dbUsername="root";
+$dbPassword="";
+$dbName="playground";
+
+
+$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
